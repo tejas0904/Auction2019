@@ -27,4 +27,5 @@ Project structure mainly recides in [io/apl/springstarter/](https://github.com/t
 * "APLAuctionAPP.java" is the main app which is responsible for running in the server on local host in this case.
 * It is a mavenized architecture with spring boot as main driving XML, contact admin before adding in any dependencies.
 
-For further assistance on how to align things do watch videos on STS 
+For further assistance on how to align things do watch [videos](https://www.youtube.com/playlist?list=PLmbC-xnvykcghOSOJ1ZF6ja3aOgZAgaMO) on STS
+
