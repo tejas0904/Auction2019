@@ -20,4 +20,11 @@ It requires to have Spring tool Suite or Eclipse for the installation (You can a
 * Application is hosted on http://localhost:8080
 
 ## Development
-...
+Project structure mainly recides in [io/apl/springstarter/](https://github.com/tejas0904/Auction2019/tree/master/auction/src/main/java/io/apl/springstarter)
+
+* "resources" folder mainly used for storing all controllers for the spring boot.
+* "model" folder mainly focused to store the backend model that recides on mongo db.
+* "APLAuctionAPP.java" is the main app which is responsible for running in the server on local host in this case.
+* It is a mavenized architecture with spring boot as main driving XML, contact admin before adding in any dependencies.
+
+For further assistance on how to align things do watch videos on STS 
