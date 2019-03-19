@@ -14,7 +14,7 @@ HTML, CSS and Angular framework are used for front end scripting
 ## Installation
 It requires to have Spring tool Suite or Eclipse for the installation (You can also work with atom or vs code or even command line, but I dare not to :P)
 
-* Import git project from this repo
+* Import git project from this repo on to your eclipse or spring tool suite
 * Update Maven Project
 * Run as Java Application
 * Application is hosted on http://localhost:8080
