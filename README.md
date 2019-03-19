@@ -20,4 +20,4 @@ It requires to have Spring tool Suite or Eclipse for the installation (You can a
 * Application is hosted on http://localhost:8080
 
 ## Development
-Please contact the owner
+...
