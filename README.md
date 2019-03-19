@@ -9,7 +9,7 @@ HTML, CSS and Angular framework are used for front end scripting
 
 ## Prequisties
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - JDK 8 with environment set 
-* [Spring Tool Suite (STS)](https://spring.io/tools3/sts/all) - Spring tool suite install it by extracting
+* [Spring Tool Suite (STS)](https://spring.io/tools) - Spring tool suite install it by extracting
 
 ## Installation
 It requires to have Spring tool Suite or Eclipse for the installation (You can also work with atom or vs code or even command line, but I dare not to :P)
