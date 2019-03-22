@@ -33,6 +33,7 @@ public class APLAuctionDetailsController {
 			if(playerDetail!=null)
 				 isPlayerRegistered = playerDB.registerPlayer(playerDetail);
 			
+			
 			if(isPlayerRegistered)
 				return new ResponseEntity<>("Player successfully registered", HttpStatus.OK);
 			else
