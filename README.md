@@ -5,7 +5,7 @@ It is a web project with backend on mlab and mongoDB.
 
 JAVA Spring Boot framework is used to make the resources to talk to backend.
 
-HTML, CSS and Angular framework are used for front end scripting
+HTML, CSS, JS and Angular framework are used for front end scripting
 
 ## Prequisties
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - JDK 8 with environment set 
@@ -28,4 +28,14 @@ Project structure mainly recides in [io/apl/springstarter/](https://github.com/t
 * It is a mavenized architecture with spring boot as main driving XML, contact admin before adding in any dependencies.
 
 For further assistance on how to align things do watch [videos](https://www.youtube.com/playlist?list=PLmbC-xnvykcghOSOJ1ZF6ja3aOgZAgaMO) on STS
+
+## Front-end
+Edit the front-end elements with index.html (https://github.com/tejas0904/Auction2019/tree/master/index.html)
+Customized styling done in css/style.css (https://github.com/tejas0904/Auction2019/tree/master/css/style.css)
+Customized JS with Google Map API's and all the scripting done in main.js (https://github.com/tejas0904/Auction2019/tree/master/js/main.js)
+Scss responsive layouts can be found here (https://github.com/tejas0904/Auction2019/tree/master/scss)
+All jquery, jquery-validation, nouislider, wnumb.js elements here (https://github.com/tejas0904/Auction2019/tree/master/vendor)
+All the material icons can be accessed here (https://github.com/tejas0904/Auction2019/tree/master/fonts/material-icon)
+Installed poppins font libraries (https://github.com/tejas0904/Auction2019/tree/master/fonts/poppins)
+
 
