@@ -100,4 +100,42 @@
         creditcard: "",
         equalTo: ""
     });
+
+    $( "#register-form" ).submit(function( event ) {
+       event.preventDefault();
+
+        const url = "http://localhost:8080/playerdetails";
+        const Data ={
+            name : document.getElementById("first_name").value
+        };
+       
+       // headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
+       // headers.append('Access-Control-Allow-Credentials', 'true');
+       
+       //"Access-Control-Allow-Methods" : "POST",
+       //"Access-Control-Allow-Headers" : "Content-Type, Authorization"    
+       
+       //"Access-Control-Allow-Origin" : "http://localhost:8080",  
+        
+
+        const otherParam={
+         headers:{
+            "content-type" : "application/json; charset=UTF-8",              
+         },
+         body:JSON.stringify(Data),
+         method:"POST",
+         mode: "cors", // no-cors, cors, *same-origin
+         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+         credentials: "same-origin" // include, *same-origin, omit 
+        };
+    
+        fetch(url,otherParam)
+        .then(data=>{return JSON.stringify(data)})
+        .then(res=>{console.log(res)})
+        .then(error=>console.log(error))
+
+      });
+
+   
+
 })(jQuery);
