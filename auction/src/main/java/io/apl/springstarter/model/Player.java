@@ -2,11 +2,150 @@ package io.apl.springstarter.model;
 
 public class Player {
 
-	private String name;
-	private int age;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private int mobileNumber;
 	private String address;
+	private String streetAddress;
+	private String city;
+	private String state;
+	private String zipCode;
+	private String country;
+	private int jerseyNumber;
+	private String sevaCollector;
+	private String jerseySize;
+	private boolean isPaid;
+	private String photo;
+	private int battingRating;
+	private int bowlingRating;
+	private int fieldingRating;
+	private String battingComment;
+	private String bowlingComment;
+	private String fieldingComment;
+	
+	public Player() {}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+	public int getJerseyNumber() {
+		return jerseyNumber;
+	}
+
+
+	public void setJerseyNumber(int jerseyNumber) {
+		this.jerseyNumber = jerseyNumber;
+	}
+
+
+	public String getSevaCollector() {
+		return sevaCollector;
+	}
+
+
+	public void setSevaCollector(String sevaCollector) {
+		this.sevaCollector = sevaCollector;
+	}
+
+
+	public String getJerseySize() {
+		return jerseySize;
+	}
+
+
+	public void setJerseySize(String jerseySize) {
+		this.jerseySize = jerseySize;
+	}
+
+
+	public boolean isPaid() {
+		return isPaid;
+	}
+
+
+	public void setPaid(boolean isPaid) {
+		this.isPaid = isPaid;
+	}
+
+
+	public String getPhoto() {
+		return photo;
+	}
+
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
 	public int getBattingRating() {
 		return battingRating;
 	}
@@ -17,32 +156,6 @@ public class Player {
 	}
 
 
-
-
-
-	private int battingRating;
-	private int bowlingRating;
-	private int fieldingRating;
-	private String battingComment;
-	private String bowlingComment;
-	private String fieldingComment;
-	
-	public Player() {}
-	
-	
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public int getAge() {
-		return age;
-	}
 
 
 	public int getBowlingRating() {
@@ -95,11 +208,6 @@ public class Player {
 	}
 
 
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-
 	public String getEmail() {
 		return email;
 	}
@@ -129,20 +237,6 @@ public class Player {
 		this.address = address;
 	}
 
-
-	@Override
-	public String toString() {
-		return "Player [name=" + name + ", age=" + age + ", email=" + email + ", mobileNumber=" + mobileNumber
-				+ ", address=" + address + ", battingRating=" + battingRating + ", bowlingRating=" + bowlingRating
-				+ ", fieldingRating=" + fieldingRating + ", battingComment=" + battingComment + ", bowlingComment="
-				+ bowlingComment + ", fieldingComment=" + fieldingComment + "]";
-	}
-
-
-	
-
-
-	
 
 	
 }
