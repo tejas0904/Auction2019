@@ -1,41 +1,9 @@
-# Auction2019
-APL Auction 2019, mainly focused on player registration and for captains to make and see changes for their wishlist
-## Project Description
-It is a web project with backend on mlab and mongoDB.
+[![Build Status](https://api.travis-ci.org/umlet/umlet.svg?branch=master)](https://github.com/jatangohel/apl-registration)
+# apl-registration
+APL is a Multinational Sport Event organized by Yogi Divine Society, Montreal.
+APL Registration is a a simple and dynamic user interface form developed with HTML5, CSS and JS incorporating GoogleMaps API's and other functionalities.
 
-JAVA Spring Boot framework is used to make the resources to talk to backend.
+* Please check out the [Wiki] (https://github.com/jatangohel/apl-registration/wiki) for frequently asked questions
 
-HTML, CSS, JS and Angular framework are used for front end scripting
-
-## Prequisties
-* [JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - JDK 8 with environment set 
-* [Spring Tool Suite (STS)](https://spring.io/tools) - Spring tool suite install it by extracting
-
-## Installation
-It requires to have Spring tool Suite or Eclipse for the installation (You can also work with atom or vs code or even command line, but I dare not to :P)
-
-* Import git project from this repo on to your eclipse or spring tool suite
-* Update Maven Project
-* Run as Java Application
-* Application is hosted on http://localhost:8080
-
-## Development
-Project structure mainly recides in [io/apl/springstarter/](https://github.com/tejas0904/Auction2019/tree/master/auction/src/main/java/io/apl/springstarter)
-
-* "resources" folder mainly used for storing all controllers for the spring boot.
-* "model" folder mainly focused to store the backend model that recides on mongo db.
-* "APLAuctionAPP.java" is the main app which is responsible for running in the server on local host in this case.
-* It is a mavenized architecture with spring boot as main driving XML, contact admin before adding in any dependencies.
-
-For further assistance on how to align things do watch [videos](https://www.youtube.com/playlist?list=PLmbC-xnvykcghOSOJ1ZF6ja3aOgZAgaMO) on STS
-
-## Front-end
-* Edit the front-end elements with index.html (https://github.com/tejas0904/Auction2019/tree/master/index.html)
-* Customized styling done in css/style.css (https://github.com/tejas0904/Auction2019/tree/master/css/style.css)
-* Customized JS with Google Map API's and all the scripting done in main.js (https://github.com/tejas0904/Auction2019/tree/master/js/main.js)
-* Scss responsive layouts can be found here (https://github.com/tejas0904/Auction2019/tree/master/scss)
-* All jquery, jquery-validation, nouislider, wnumb.js elements here (https://github.com/tejas0904/Auction2019/tree/master/vendor)
-* All the material icons can be accessed here (https://github.com/tejas0904/Auction2019/tree/master/fonts/material-icon)
-* Installed poppins font libraries (https://github.com/tejas0904/Auction2019/tree/master/fonts/poppins)
-
-
+* Go to http://www.webmountstudio.com for the company details.
+* Live Preview: http://www.webmountstudio.com/apl2019
