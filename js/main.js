@@ -1,23 +1,23 @@
 (function($) {
 
-  $('#meal_preference').parent().append('<ul class="list-item" id="newmeal_preference" name="meal_preference"></ul>');
-  $('#meal_preference option').each(function(){
-      $('#newmeal_preference').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
+  $('#jerseySize').parent().append('<ul class="list-item" id="newjerseySize" name="jerseySize"></ul>');
+  $('#jerseySize option').each(function(){
+      $('#newjerseySize').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
   });
-  $('#meal_preference').remove();
-  $('#newmeal_preference').attr('id', 'meal_preference');
-  $('#meal_preference li').first().addClass('init');
-  $("#meal_preference").on("click", ".init", function() {
-      $(this).closest("#meal_preference").children('li:not(.init)').toggle();
+  $('#jerseySize').remove();
+  $('#newjerseySize').attr('id', 'jerseySize');
+  $('#jerseySize li').first().addClass('init');
+  $("#jerseySize").on("click", ".init", function() {
+      $(this).closest("#jerseySize").children('li:not(.init)').toggle();
   });
   
-  var allOptions = $("#meal_preference").children('li:not(.init)');
-  $("#meal_preference").on("click", "li:not(.init)", function() {
+  var allOptions = $("#jerseySize").children('li:not(.init)');
+  $("#jerseySize").on("click", "li:not(.init)", function() {
       allOptions.removeClass('selected');
       $(this).addClass('selected');
-      $("#meal_preference").children('.init').html($(this).html());
+      $("#jerseySize").children('.init').html($(this).html());
       allOptions.toggle();
-  });
+  });   
 
   var marginSlider = document.getElementById('slider-margin');
   if (marginSlider != undefined) {
@@ -72,9 +72,6 @@
         last_name : {
             required: true,
         },
-        company : {
-            required: true
-        },
         email : {
             required: true,
             email : true
@@ -100,42 +97,4 @@
         creditcard: "",
         equalTo: ""
     });
-
-    $( "#register-form" ).submit(function( event ) {
-       event.preventDefault();
-
-        const url = "http://localhost:8080/playerdetails";
-        const Data ={
-            name : document.getElementById("first_name").value
-        };
-       
-       // headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
-       // headers.append('Access-Control-Allow-Credentials', 'true');
-       
-       //"Access-Control-Allow-Methods" : "POST",
-       //"Access-Control-Allow-Headers" : "Content-Type, Authorization"    
-       
-       //"Access-Control-Allow-Origin" : "http://localhost:8080",  
-        
-
-        const otherParam={
-         headers:{
-            "content-type" : "application/json; charset=UTF-8",              
-         },
-         body:JSON.stringify(Data),
-         method:"POST",
-         mode: "cors", // no-cors, cors, *same-origin
-         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-         credentials: "same-origin" // include, *same-origin, omit 
-        };
-    
-        fetch(url,otherParam)
-        .then(data=>{return JSON.stringify(data)})
-        .then(res=>{console.log(res)})
-        .then(error=>console.log(error))
-
-      });
-
-   
-
 })(jQuery);
