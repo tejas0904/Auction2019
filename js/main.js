@@ -118,7 +118,9 @@
     });
     registerForm.submit(function (event) {
         event.preventDefault();
-        const url = "http://apl2019.us-east-2.elasticbeanstalk.com/playerdetails";
+        //const url1 = "http://apl2019.us-east-2.elasticbeanstalk.com/playerdetails";
+       const url1 = "http://localhost:8080/playerdetails";
+
         const Data = {
             firstName: document.getElementById("first_name").value,
             lastName: document.getElementById("last_name").value,
@@ -131,7 +133,7 @@
             country: document.getElementById("country").value,
             jerseyNumber: document.getElementById("chequeno").value,
             sevaCollector:document.getElementById("locality").value,
-            jerseySize :document.getElementById("jerseySize").value,
+            jerseySize :"document",//.getElementById("jerseySize").value,
             isPaid: false,
             photo :"document.getElementByIdfgn.value",
             battingRating :battingSlider.noUiSlider.get(), // getter syntax for the value of slider
@@ -142,26 +144,33 @@
             //  fieldingComment : document.getElementById("locality").value
         };
 
-        console.log(Data);
-        const otherParam = {
-            headers: {
-                "content-type": "application/json;",
-            },
-            body: JSON.stringify(Data),
-            method: "POST",
-            mode: "no-cors", // no-cors, cors, *same-origin
-            cache: "no-cache" // *default, no-cache, reload, force-cache, only-if-cached
+        var myHeader =  new Headers();
+        myHeader.append("content-type","application/json");
 
+        const otherParam = {
+            headers:{
+                "content-type":"application/json"
+            },
+            body:  JSON.stringify(Data),
+            method: "POST",
+           // mode: "no-cors" // no-cors, cors, *same-origin
         };
 
-        fetch(url, otherParam)
-            .then(data => {
-                return JSON.stringify(data)
-            })
+        // const otherParam1 = {
+        //     mode: "no-cors" // no-cors, cors, *same-origin
+        // };
+        // fetch('http://localhost:8080/hello',otherParam1)
+        //     .then(function(myJson) {
+        //         console.log(JSON.stringify(myJson));
+        //     });
+
+
+        fetch(url1, otherParam)
             .then(res => {
                 alert("Successfully submitted! voila! " + res)
             })
-            .then(error => console.log(error))
+            //.then(error => console.log(error))
+            .catch(error => console.error(error));
 
     });
 
