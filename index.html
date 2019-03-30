@@ -46,29 +46,29 @@
                                 
                                 <div class="form-input">
                                     <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="first_name" id="first_name" />
+                                    <input type="text" name="first_name" id="first_name" required/>
                                 </div>
                                 
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="last_name" id="last_name" />
+                                    <input type="text" name="last_name" id="last_name" required/>
                                 </div>
 
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
-                                    <input type="text" name="email" id="email" />
+                                    <input type="text" name="email" id="email" required/>
                                 </div>
                                 
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
-                                    <input type="text" name="phone_number" id="phone_number" maxlength="12" placeholder="xxx-xxx-xxxx">
+                                    <input type="text" name="phone_number" id="phone_number" maxlength="12" required placeholder="xxx-xxx-xxxx" required>
                                 </div>
                                 
                                                                
                                 <div id="locationField">
                                 <div class="form-input">
                                     <label for="address" class="required">Enter your address</label>
-                                    <input type="text" name="address" onFocus="geolocate()" id="autocomplete" placeholder="Enter your address">
+                                    <input type="text" name="address" onFocus="geolocate()" id="autocomplete" placeholder="Enter your address" required>
                                 </div>
                                 </div>
                                      </div>
@@ -98,11 +98,7 @@
                             </div>
                         </div>
                         
-                        
-                        
-                        
-                        
-                        
+                          
                        
                         <div class="batting">
                             <label class="required">Tell us about your batting skills</label>
@@ -135,7 +131,7 @@
                             
                                 <div class="form-input">
                                     <label for="chequeno" class="required">Jersey Number (0 to 99)</label>
-                                    <input type="number" name="chequeno" id="chequeno" min="0" max="99" />
+                                    <input type="number" name="chequeno" id="chequeno" min="0" max="99" required/>
                                 </div> 
                             </div>
                             
@@ -146,11 +142,13 @@
                                 
                                     <div class="form-select">
                                     <div class="label-flex">
-                                        <label for="jerseySize" class="required">Your Jersey Size</label>
-                                        <a href="#" class="form-link" style="color: red">Won't change</a>
-                                    </div>
+                                        <label for="jerseySize" class="required">Jersey Size</label>
+                                        </div>
+                                        
+                                    <a class="form-link" style="color: red">Please select the size carefully because it won't change later.</a>
                                     <div class="select-list">
-                                        <select name="jerseySize" id="jerseySize">
+                                        
+                                        <select name="jerseySize" id="jerseySize" required>
                                             <option value="selectSize">Select Final Size</option>
                                             <option value="small" id="small">Small</option>
                                             <option value="medium" id="medium">Medium</option>
