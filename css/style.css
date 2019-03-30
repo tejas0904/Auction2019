@@ -462,8 +462,10 @@ li.init {
       content: '\f2fa';
       left: 10px; }
     #slider-margin .noUi-handle:after {
+        
       font-family: 'Material-Design-Iconic-Font';
       color: #fff;
+        
       content: '\f2fb';
       left: auto;
       right: -5px; }

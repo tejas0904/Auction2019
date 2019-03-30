@@ -33,11 +33,12 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                     <h1 style="color: #095142">&nbsp;&nbsp;&nbsp;&nbsp;<i>#APL2019</i><img src="images/apl_logo.png" class="img" width="10%"></h1>
+                     <img class="res" src="images/apl_logo.png" class="img" width="10%">
+                    <h1 style="color: #095142">&nbsp;&nbsp;&nbsp;&nbsp;<i>#APL2019</i></h1>
                     
                     <div class="form-input">
                     <label style="margin: 15px 15px 15px 15px;"><u>Please note:</u></label>
-                    <label style="margin: 15px 15px 15px 15px;">Kindly fill up the form with honesty because we would only process authentic data.</label>
+                    <label style="margin: 15px 15px 15px 15px;">THE RATINGS PROVIDED BY YOU ARE CONSIDERED TO BE THE EXACT LEVEL AT WHICH YOU CONSIDER YOUR GAMEPLAY. CAPTAINS DURING THE AUCTION WILL BID FOR YOU BASED ON THE RATINGS YOU PROVIDE. SO PLEASE MAKE SURE THE RATINGS ARE DONE SERIOUSLY IN ORDER TO ENJOY THE TOURNAMENT. THANK YOU FOR YOUR UNDERSTANDING</label>
                         </div>
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
@@ -130,9 +131,11 @@
                             <div class="form-group">
                             
                                 <div class="form-input">
+                                    
                                     <label for="chequeno" class="required">Jersey Number (0 to 99)</label>
                                     <input type="number" name="chequeno" id="chequeno" min="0" max="99" required/>
                                 </div> 
+                                
                             </div>
                             
                             
@@ -200,8 +203,7 @@
                                           $temp.val($(element).text()).select();
                                           document.execCommand("copy");
                                          $temp.remove();
-                                        
-                                         
+                                        alert("Copied Email for Interac");
                                         }
 
                                      

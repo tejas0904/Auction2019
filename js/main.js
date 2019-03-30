@@ -21,22 +21,38 @@
         allOptions.toggle();
     });
 
+//    var range_all_sliders = {
+//	'min': [     0 ],
+//	'10%': [   50,  50 ],
+//	'50%': [  400, 100 ],
+//	'max': [ 1000 ]
+//}
+    
+    
+    
+    
+    
+    
     let battingSlider = document.getElementById('slider-margin');
     if (battingSlider !== undefined) {
         noUiSlider.create(battingSlider, {
             start: [5],
             step: 1,
-            connect: [true, false],
+            connect: [true,false],
             tooltips: [true],
             range: {
                 'min': 0,
-                'max': 10
+//                '10%':['best'],
+//                '20%':[2,'worst'],
+                'max': [10]
             },
             format: wNumb({
                 decimals: 0,
                 thousand: ',',
                 prefix: ' ',
             })
+            
+
         });
     }
 
