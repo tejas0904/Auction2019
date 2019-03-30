@@ -169,9 +169,8 @@
             .then(res => {
                 alert("Successfully submitted! voila! " + res)
             })
-            //.then(error => console.log(error))
-            .catch(error => console.error(error));
 
+            .then(error => console.log(error))
     });
 
 
