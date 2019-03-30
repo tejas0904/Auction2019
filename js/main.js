@@ -1,22 +1,20 @@
 
 (function ($) {
-    console.log("hello")
     "use strict";
-    let jerseySize = $('#jerseySize');
     let registerForm =  $('#register-form');
-    jerseySize.parent().append('<ul class="list-item" id="newjerseySize" name="jerseySize"></ul>');
+    $('#jerseySize').parent().append('<ul class="list-item" id="newjerseySize" name="jerseySize"></ul>');
     $('#jerseySize option').each(function () {
         $('#newjerseySize').append('<li value="' + $(this).val() + '">' + $(this).text() + '</li>');
     });
-    jerseySize.remove();
+    $('#jerseySize').remove();
     $('#newjerseySize').attr('id', 'jerseySize');
     $('#jerseySize li').first().addClass('init');
-    jerseySize.on("click", ".init", function () {
+    $('#jerseySize').on("click", ".init", function () {
         $(this).closest("#jerseySize").children('li:not(.init)').toggle();
     });
 
-    let allOptions = jerseySize.children('li:not(.init)');
-    jerseySize.on("click", "li:not(.init)", function () {
+    let allOptions = $('#jerseySize').children('li:not(.init)');
+    $('#jerseySize').on("click", "li:not(.init)", function () {
         allOptions.removeClass('selected');
         $(this).addClass('selected');
         $("#jerseySize").children('.init').html($(this).html());
@@ -119,10 +117,8 @@
         equalTo: ""
     });
     registerForm.submit(function (event) {
-        console.log(battingSlider.noUiSlider.get());
         event.preventDefault();
-
-        const url = "http://localhost:8080/playerdetails";
+        const url = "http://apl2019.us-east-2.elasticbeanstalk.com/playerdetails";
         const Data = {
             firstName: document.getElementById("first_name").value,
             lastName: document.getElementById("last_name").value,
@@ -135,9 +131,9 @@
             country: document.getElementById("country").value,
             jerseyNumber: document.getElementById("chequeno").value,
             sevaCollector:document.getElementById("locality").value,
-            jerseySize :document.getElementById("locality").value,
+            jerseySize :document.getElementById("jerseySize").value,
             isPaid: false,
-            // photo :document.getElementById("locality").value,
+            photo :"document.getElementByIdfgn.value",
             battingRating :battingSlider.noUiSlider.get(), // getter syntax for the value of slider
             bowlingRating :bowlingSlider.noUiSlider.get(),
             fieldingRating :fieldingSlider.noUiSlider.get(),
@@ -146,16 +142,16 @@
             //  fieldingComment : document.getElementById("locality").value
         };
 
-
+        console.log(Data);
         const otherParam = {
             headers: {
-                "content-type": "application/json; charset=UTF-8",
+                "content-type": "application/json;",
             },
             body: JSON.stringify(Data),
             method: "POST",
-            mode: "cors", // no-cors, cors, *same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin" // include, *same-origin, omit
+            mode: "no-cors", // no-cors, cors, *same-origin
+            cache: "no-cache" // *default, no-cache, reload, force-cache, only-if-cached
+
         };
 
         fetch(url, otherParam)
