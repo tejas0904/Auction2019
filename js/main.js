@@ -141,6 +141,11 @@
         assertCheckIfDefined(fieldValue, fieldName);
         return fieldValue;
     };
+    
+    const isValidEmail = email => {
+        const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return email.match(regex);
+    };
 
     const validateAndGetValidatedFields = () => {
         let firstName;
@@ -167,6 +172,9 @@
         firstName = getValueIfNotUndefinedInputFields("first_name", "first name");
         lastName = getValueIfNotUndefinedInputFields("last_name", "last name");
         email = getValueIfNotUndefinedInputFields("email");
+        if(!isValidEmail(email)) {
+            throw new Error("please provide valid email id");
+        }
         const streetNumber = getValueIfNotUndefinedInputFields("street_number", "street number");
         const route = getValueIfNotUndefinedInputFields("route");
         streetAddress = streetNumber + " " + route;
@@ -208,10 +216,11 @@
         }
         const base64PhotoWithExt = base64PhotoWithFileExtensionSeperatedByDot.toString().split('.');
         base64ImageString = base64PhotoWithExt[0];
-        imageFormat = base64PhotoWithExt[1];
+        imageFormat = base64PhotoWithExt[1].toLocaleLowerCase();
 
-        if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png")) {
-            throw new Error("invalid image format (shoud either jpg/jpeg/png)");
+        if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png" || imageFormat === "heic" ||
+              imageFormat === "heif" || imageFormat === "hevc")) {
+            throw new Error("invalid image format (shoud either jpg/jpeg/png/heic)");
         }
 
         try {
