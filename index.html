@@ -21,11 +21,19 @@
        
     
 <body>
+    
+    <!-- LOADER STARTS-->
+    <div class="lds-css ng-scope" id="loader">
+        <div class="lds-ball">
+            <div>
+            </div>
+        </div>
+    </div>
+    <!--LOADER ENDS-->
+    
+    
+    
     <style>
-        
-        
-        
-        
     .readonly
         {
             background-color: #EBEBEB;
@@ -45,23 +53,22 @@
                         <p>while seats are available!</p>
                     </div>
                 </div>
+                
+                
                 <div class="signup-form">
                     <center>
                      <img class="img-responsive" style="margin: 15px 15px" src="images/apl_logo.png" class="img" width="10%">
-                    <h1 style="color: #f45a00">&nbsp;&nbsp;&nbsp;&nbsp;<i>WELCOME TO #APL2019</i></h1>
-                    
+                    <h1 style="color: #f45a00"><i>WELCOME TO #APL2019</i></h1>
+                    </center>
                         
                          
                     <div class="form-group">
-                    <div class="form-input">
-                    <label class="form-link"><u style="color: red;">Please note:</u>
+                    <div class="form-input" style="padding: 9px 10px 9px 10px">
+                    <label class="form-link" style="text-align: justify;"><u style="color: red;">Please note:</u>
                         The ratings provided by you are considered to be the exact level at which you consider your gameplay. Captains during the auction will bid for you based on the ratings you provide. So please make sure the ratings are done seriously in order to enjoy the tournament. Also please provide a picture where the face is clearly visible. Thank you for your understanding.</label>
                         </div></div> 
                         
-                        </center>
-                        
-                        
-                        
+                         
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
                              
@@ -69,29 +76,29 @@
                                 
                                 <div class="form-input">
                                     <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="first_name" id="first_name" required/>
+                                    <input type="text" name="first_name" id="first_name" autocomplete="off" required/>
                                 </div>
                                 
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="last_name" id="last_name" required/>
+                                    <input type="text" name="last_name" id="last_name" autocomplete="off" required/>
                                 </div>
 
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
-                                    <input type="email" name="email" id="email" required/>
+                                    <input type="email" name="email" id="email" autocomplete="off" required/>
                                 </div>
                                 
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
-                                    <input type="text" name="phone_number" id="phone_number" maxlength="12" required placeholder="xxx-xxx-xxxx" required>
+                                    <input type="text" name="phone_number" id="phone_number" maxlength="12" required placeholder="xxx-xxx-xxxx" autocomplete="off" required>
                                 </div>
                                 
                                                                
                                 <div id="locationField">
                                 <div class="form-input">
                                     <label for="address" class="required">Enter your address</label>
-                                    <input type="text" name="address" onFocus="geolocate()" id="autocomplete" placeholder="Enter your address" required>
+                                    <input type="text" name="address" onFocus="geolocate()" id="autocomplete" placeholder="Enter your address" autocomplete="off" required>
                                 </div>
                                 </div>
                                      </div>
@@ -101,27 +108,27 @@
                                     
                                     <div class="form-input">
                                     Street address
-                                <input class="field readonly" id="street_number" disabled="true" readonly/>
-                                <input class="field readonly" id="route" readonly/><br>
+                                <input class="field readonly" id="street_number" disabled="true" required readonly/>
+                                <input class="field readonly" id="route" required readonly/><br>
                                 
                                 City
-                                <input class="field readonly" id="locality" readonly/><br>
+                                <input class="field readonly" id="locality" required readonly/><br>
                                 
                                 State
-                                <input class="field readonly" id="administrative_area_level_1"readonly/><br>
+                                <input class="field readonly" id="administrative_area_level_1" required readonly/><br>
                                 
                                 Zip code
-                                <input class="field readonly" id="postal_code" readonly/>
+                                <input class="field readonly" id="postal_code" required readonly/>
                                 
                                 Country
-                                <input class="field readonly" id="country" readonly/><br>
+                                <input class="field readonly" id="country" required readonly/><br>
                                     
                                     <!-- end -->
                                 </div>
                             </div>
                         </div>
                         
-                          <a class="form-link" style="color: red">THE RATINGS PROVIDED BY YOU ARE CONSIDERED TO BE THE EXACT LEVEL AT WHICH YOU CONSIDER YOUR GAMEPLAY. CAPTAINS DURING THE AUCTION WILL BID FOR YOU BASED ON THE RATINGS YOU PROVIDE. SO PLEASE MAKE SURE THE RATINGS ARE DONE SERIOUSLY IN ORDER TO ENJOY THE TOURNAMENT. THANK YOU FOR YOUR UNDERSTANDING</a>
+                          <a class="form-link" style="color: red; text-align: justify;">THE RATINGS PROVIDED BY YOU ARE CONSIDERED TO BE THE EXACT LEVEL AT WHICH YOU CONSIDER YOUR GAMEPLAY. CAPTAINS DURING THE AUCTION WILL BID FOR YOU BASED ON THE RATINGS YOU PROVIDE. SO PLEASE MAKE SURE THE RATINGS ARE DONE SERIOUSLY IN ORDER TO ENJOY THE TOURNAMENT. THANK YOU FOR YOUR UNDERSTANDING</a>
                        
                         <div class="batting">
                             <label class="required">Tell us about your batting skills</label>
@@ -130,7 +137,7 @@
                                 <span class="donate-value" id="batting_value"></span>
                             </div>
                             <br>
-                                    <input type="text" class="required" name="battingComments" id="battingComments" maxlength="150" placeholder="Please describe your Batting sills" required>
+                                    <input type="text" class="required" name="battingComments" id="battingComments" maxlength="150" placeholder="Please describe your Batting sills" autocomplete="off" required>
                         </div>
                         
                          <div class="batting">
@@ -140,7 +147,7 @@
                                 <span class="donate-value1" id="bowling_value"></span>
                             </div>
                              <br>
-                                    <input type="text" class="required" name="bowlingComments" id="bowlingComments" maxlength="150" placeholder="Please describe your Bowling sills" required>
+                                    <input type="text" class="required" name="bowlingComments" id="bowlingComments" maxlength="150" placeholder="Please describe your Bowling sills" autocomplete="off" required>
                         </div>
                         
                           <div class="batting">
@@ -150,7 +157,7 @@
                                 <span class="donate-value2" id="fielding_value"></span>
                             </div>
                               <br>
-                                    <input type="text" class="required" name="fieldingComments" id="fieldingComments" maxlength="150" placeholder="Please describe your Fielding sills" required>
+                                    <input type="text" class="required" name="fieldingComments" id="fieldingComments" maxlength="150" placeholder="Please describe your Fielding sills" autocomplete="off" required>
                         </div>
                         
                         
@@ -282,12 +289,90 @@
                             <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
                             <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
                         </div>
+                                      
                                   </div>
                     </form>
-                       
+                     
+                    
+                    
+                    
+                    
+       <!-- MODAL -->
+<button id="mySuccessBtn">Success Modal</button>                 
+<!-- Success Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      <h2 style="color:green;">Thank you for Registering!</h2>
+    <h4>You have 10 days to send the seva amount in order to confirm your registration, or else it would be transferred to the first person in the waiting list.
+        <br>
+        Jai Swaminarayan! :) </h4>
+  </div>
+</div>
+
+                    
+<button id="myFailBtn">Fail Modal</button>                    
+<!-- Fail Modal -->
+<div id="myModal1" class="modal">
+  <div class="modal-content">
+    <span class="close1">&times;</span>
+      <h2 style="color:red;">Please try again!</h2>
+  </div>
+</div>                    
+                    
+                    
+<script>
+let modal = document.getElementById('myModal');
+let btn = document.getElementById("mySuccessBtn");
+let span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+let modal1 = document.getElementById('myModal1');
+let btn1 = document.getElementById("myFailBtn");
+let span1 = document.getElementsByClassName("close1")[0];
+btn1.onclick = function() {
+  modal1.style.display = "block";
+}
+span1.onclick = function() {
+  modal1.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+}
+</script>
+
+
+      
+                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 </div>
+                
+                
             </div></div>
     </div>
+    
+    
            
 
     <!-- JS -->
