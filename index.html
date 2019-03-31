@@ -5,21 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>APL 2019 Registeration Form</title>
-   
+
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
+
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
 
  <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
-    
- 
+<script>
+    const getBaseUrl = async () =>  {
+        const getBase64 = file => {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        };
+
+        try {
+            const fileName = document.querySelector('input[type="file"]').files[0];
+            const fileExt = fileName.split('.').pop();
+            const data = (await getBase64(fileName)).split(",")[1];
+            console.log(data);
+            document.getElementById('base64Image').value = data+"."+fileExt;
+        } catch (error) {
+            alert("Invalid image. Please select a valid image");
+        }
+    }
+</script>
+
 </head>
-       
-    
+
+
 <body>
 
 
@@ -27,7 +48,7 @@
 
         <div class="container">
             <div class="signup-content">
-              
+
                 <div class="signup-img">
                     <img src="images/form-img1.jpg" alt="">
                     <div class="signup-img-content">
@@ -39,21 +60,21 @@
                     <center>
                      <img class="img-responsive" style="margin: 15px 15px" src="images/apl_logo.png" class="img" width="10%">
                     <h1 style="color: #f45a00">&nbsp;&nbsp;&nbsp;&nbsp;<i>WELCOME TO #APL2019</i></h1>
-                    
-                    
+
+
                     <div class="form-input">
                     <label class="form-link" style="padding-left: 5px;"><u style="color: red;">Please note:</u> THE DETAILS PROVIDED BY YOU ARE CONSIDERED TO BE CORRECT.<BR>YOU ARE JUST ONE STEP CLOSER OF ATMIYA PREMIERE LEAGUE!</label>
                         </div> </center>
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
-                             
+
                             <div class="form-group">
-                                
+
                                 <div class="form-input">
                                     <label for="first_name" class="required">First name</label>
                                     <input type="text" name="first_name" id="first_name" required/>
                                 </div>
-                                
+
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
                                     <input type="text" name="last_name" id="last_name" required/>
@@ -63,13 +84,13 @@
                                     <label for="email" class="required">Email</label>
                                     <input type="text" name="email" id="email" required/>
                                 </div>
-                                
+
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
                                     <input type="text" name="phone_number" id="phone_number" maxlength="12" required placeholder="xxx-xxx-xxxx" required>
                                 </div>
-                                
-                                                               
+
+
                                 <div id="locationField">
                                 <div class="form-input">
                                     <label for="address" class="required">Enter your address</label>
@@ -77,34 +98,34 @@
                                 </div>
                                 </div>
                                      </div>
-                            
+
                              <div class="form-group">
                                     <!-- start -->
-                                    
+
                                     <div class="form-input">
                                     Street address
                                 <input class="field" id="street_number" disabled="true" disabled/>
                                 <input class="field" id="route" disabled="true"/><br>
-                                
+
                                 City
                                 <input class="field" id="locality" disabled="true"/><br>
-                                
+
                                 State
                                 <input class="field" id="administrative_area_level_1" disabled="true"/><br>
-                                
+
                                 Zip code
                                 <input class="field" id="postal_code" disabled="true"/>
-                                
+
                                 Country
                                 <input class="field" id="country" disabled="true"/><br>
-                                    
+
                                     <!-- end -->
                                 </div>
                             </div>
                         </div>
-                        
+
                           <a class="form-link" style="color: red">THE RATINGS PROVIDED BY YOU ARE CONSIDERED TO BE THE EXACT LEVEL AT WHICH YOU CONSIDER YOUR GAMEPLAY. CAPTAINS DURING THE AUCTION WILL BID FOR YOU BASED ON THE RATINGS YOU PROVIDE. SO PLEASE MAKE SURE THE RATINGS ARE DONE SERIOUSLY IN ORDER TO ENJOY THE TOURNAMENT. THANK YOU FOR YOUR UNDERSTANDING</a>
-                       
+
                         <div class="batting">
                             <label class="required">Tell us about your batting skills</label>
                             <div class="skill_slider ui-slider ui-slider-horizontal">
@@ -114,7 +135,7 @@
                             <br>
                                     <input type="textarea" class="required" name="battingComments" id="battingComments" maxlength="12" placeholder="Please describe your Batting sills" required>
                         </div>
-                        
+
                          <div class="batting">
                             <label class="required">Tell us about your bowling skills</label>
                             <div class="skill_slider ui-slider ui-slider-horizontal">
@@ -124,7 +145,7 @@
                              <br>
                                     <input type="textarea" class="required" name="bowlingComments" id="bowlingComments" maxlength="12" placeholder="Please describe your Bowling sills" required>
                         </div>
-                        
+
                           <div class="batting">
                             <label class="required">Tell us about your fielding skills</label>
                             <div class="skill_slider ui-slider ui-slider-horizontal">
@@ -134,76 +155,76 @@
                               <br>
                                     <input type="textarea" class="required" name="fieldingComments" id="fieldingComments" maxlength="12" placeholder="Please describe your Fielding sills" required>
                         </div>
-                        
-                        
-                        
-                            
-                        
-                  
-                        
+
+
+
+
+
+
+
                         <div class="form-row">
                             <div class="form-group">
-                            
+
                                 <div class="form-input">
                                     <label for="chequeno" class="required">Jersey Number (0 to 99)</label>
                                       <a class="form-link" style="color: red">Select your desired number on your jersey.</a>
                                     <input type="number" name="chequeno" id="chequeno" min="0" max="99" required/>
-                                </div> 
-                                
+                                </div>
+
                             </div>
-                            
-                            
+
+
 
                             <div class="form-group">
                                  <div class="form-input">
-                                
+
                                     <div class="form-select">
                                     <div class="label-flex">
                                         <label for="jerseySize" class="required">Jersey Size</label>
                                         </div>
-                                        
-                                    
+
+
                                      <a class="form-link" style="color: red">Select the size carefully because it won't change later.</a>
                                     <div class="select-list">
-                                        
+
                                         <select name="jerseySize" id="jerseySize">
                                             <option value="selectSize">Select Final Size</option>
-                                            <option value="small" id="small">Small</option>
+                                            <option value="small" id="small" selected="selected">Small</option>
                                             <option value="medium" id="medium">Medium</option>
                                             <option value="large" id="large">Large</option>
                                             <option value="xlarge" id="xlarge">XLarge</option>
                                             <option value="2xlarge" id="2xlarge">2XLarge</option>
                                         </select>
                                     </div>
-                                      
+
                                 </div>
                                 </div>
                             </div>
                               </div>
-                            
-                        
-                        
-                            <div class="form-group">     
+
+
+
+                            <div class="form-group">
                                   <div class="form-radio">
                                     <div class="label-flex">
                                         <label for="payment" class="required">I am sending <b style="color: red;"><u>$40</u></b> APL Seva to</label>
 <!--                                        <a href="#" class="form-link">Select & copy email</a>-->
                                     </div>
-                                    <div class="form-radio-group">            
+                                    <div class="form-radio-group">
                                         <div class="form-radio-item">
                                             <input type="radio" name="payment" id="cash1" onclick="copyToClipboard('#p1')">
                                             <label for="cash1">Bhavik Goyani</label>
                                             <p id="p1">goyanibhavik369@gmail.com</p>
                                             <span class="check"></span>
                                         </div>
-                                        
+
                                         <div class="form-radio-item">
                                             <input type="radio" name="payment" id="cash2" onclick="copyToClipboard('#p2')">
                                             <label for="cash2">Saral Patel</label>
                                             <p id="p2">saralpatel21@gmail.com</p>
                                             <span class="check"></span>
                                         </div>
-                                        
+
                                         <div class="form-radio-item">
                                             <input type="radio" name="payment" id="cash3" onclick="copyToClipboard('#p3')">
                                             <label for="cash3">Saurabh Jain</label>
@@ -217,14 +238,14 @@
                                             <span class="check"></span>
                                         </div>
 -->
-                                       
+
                                     </div>
                                 </div>
-                                 
+
                                  <script>
-                                     
+
                                     function copyToClipboard(element) {
-                                        
+
                                           var $temp = $("<input>");
                                           $("body").append($temp);
                                           $temp.val($(element).text()).select();
@@ -233,41 +254,33 @@
                                         alert("You have successfully copied the Email for Interac. You can open your Bank App and paste it there.");
                                         }
 
-                                     
-                                    </script>     
+
+                                    </script>
                         </div>
-                       
-                            
-                         
-                        
-                        
-                        
-                     
+
+
+
+
+
+
+
                               <div class="form-group">
-                                  
-                                  <form action="upload.php" method="post" enctype="multipart/form-data">
-                                      
                                       <label class="required">Select your profile picture:</label>
-                                      
-                                
-                                <input type="file" name="fileToUpload" id="fileToUpload">
-                                  
-                            </form>
-                             
-                       
+                                      <input type="file" name="myImage" accept="image/*" onchange="getBaseUrl();" />
                         <br>
-                     
+
                         <div class="form-submit">
                             <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
                             <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
                         </div>
                                   </div>
+                        <input type="text" id="base64Image" style="display: none;">
                     </form>
-                       
+
                 </div>
             </div></div>
     </div>
-           
+
 
     <!-- JS -->
 
@@ -277,17 +290,17 @@
     <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
     <script src="js/main.js"></script>
-    
-            
-             
-            
+
+
+
+
         <!-- Phone Number -->
     <script>
  $(function () {
 
             $('#phone_number').keydown(function (e) {
              var key = e.charCode || e.keyCode || 0;
-             $text = $(this); 
+             $text = $(this);
              if (key !== 8 && key !== 9) {
                  if ($text.val().length === 3) {
                      $text.val($text.val() + '-');
@@ -303,8 +316,8 @@
 });
         </script>
     <!-- Phone Number End -->
-    
-    
+
+
     <!-- Google Address -->
     <script>
     // This sample uses the Autocomplete widget to help the user select a
@@ -377,13 +390,13 @@ function geolocate() {
   }
 }
     </script>
-            
-             
-            
+
+
+
     <!-- Google Address ends -->
-        
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF87lwnuKE1D2GbIEV2n7NRe4BUyxU8WE&libraries=places&callback=initAutocomplete"
                 async defer></script>
-    
+
 </body>
 </html>
