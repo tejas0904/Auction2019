@@ -268,19 +268,21 @@
     });
 
     const displaySuccessMessage = message => {
-        alert(message);
+        document.getElementById("myModal").style.display = "block";
+        document.getElementById("successModalMessage").innerHTML = (message);
     };
 
     const displayErrorMessage = message => {
-        alert(message);
+        document.getElementById("myModal1").style.display = "block";
+        document.getElementById("failModalMessage").innerHTML = (message);
     };
 
     const displayLoader = () => {
-        getLoader().style.visibility = visible;
+        getLoader().style.visibility = "visible";
     };
 
     const hideLoader = () => {
-        getLoader().style.visibility = hidden;
+        getLoader().style.visibility = "hidden";
     };
 
     const getLoader = () => {
