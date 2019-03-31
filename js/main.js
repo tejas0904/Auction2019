@@ -168,7 +168,7 @@
         let jerseyNumber;
         let jerseySize;
         let sevaCollectorEmail;
-        let ref_name;
+        let refName;
         
 
         firstName = getValueIfNotUndefinedInputFields("first_name", "first name");
@@ -188,7 +188,7 @@
         bowlingComment = getValueIfNotUndefinedInputFields("bowlingComments", "bowling comments");
         fieldingComment = getValueIfNotUndefinedInputFields("fieldingComments", "fielding comments");
         sevaCollectorEmail = getValueIfNotUndefinedInputFields("sevaCollectorEmail", "seva collector");
-        ref_name = getValueIfNotUndefinedInputFields("ref_name", "reference name");
+        refName = getValueIfNotUndefinedInputFields("refName", "reference name");
 
         try {
             phoneNumber = parseInt(document.getElementById("phone_number").value.trim().replace(/-/g, ''));   // this line will remove dash in string and convert it to integer
@@ -265,7 +265,7 @@
             jerseyNumber,
             jerseySize,
             sevaCollectorEmail,
-            ref_name
+            refName
         }
     };
 
@@ -295,7 +295,7 @@
             fieldingComment: validatedFields.fieldingComment,
             photo: validatedFields.base64ImageString,
             imageFormat: validatedFields.imageFormat,
-            ref_name: validatedFields.ref_name
+            refName: validatedFields.refName
         };
 
         log(requestBody);
