@@ -206,8 +206,8 @@
                                 <label for="chequeno" class="required">Jersey Number (0 to 99)</label>
                                 <a class="form-link" style="color: red">Select your desired number on your jersey.</a>
                                 <input type="number" name="chequeno" id="chequeno" maxlength=2 min="0" max="99"
-                                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                       maxlength="2" required/>
+                                       onInput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                       required/>
 
                             </div>
 
