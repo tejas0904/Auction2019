@@ -276,11 +276,11 @@
     };
 
     const displayLoader = () => {
-        //getLoader().style.visibility = visible;
+        getLoader().style.visibility = visible;
     };
 
     const hideLoader = () => {
-        //getLoader().style.visibility = hidden;
+        getLoader().style.visibility = hidden;
     };
 
     const getLoader = () => {
