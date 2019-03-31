@@ -248,18 +248,8 @@
                             <div class="label-flex">
                                 <label for="payment" class="required">I am sending <b style="color: red;"><u>$40</u></b>
                                     APL Seva to</label>
-                                <!--                                        <a href="#" class="form-link">Select & copy email</a>-->
                             </div>
                             <div class="form-radio-group">
-                                <!--
-                                                                        <div class="form-radio-item">
-                                                                            <input type="radio" name="payment" id="cash1" onclick="copyToClipboard('#p1')">
-                                                                            <label for="cash1">Bhavik Goyani</label>
-                                                                            <p id="p1">goyanibhavik369@gmail.com</p>
-                                                                            <span class="check"></span>
-                                                                        </div>
-                                -->
-
                                 <div class="form-radio-item">
                                     <input type="radio" name="payment" id="cash2"
                                            onclick="onClick('#p2', 'saralpatel21@gmail.com')">
@@ -275,14 +265,6 @@
                                     <p id="p3">saurabhjain3699@gmail.com</p>
                                     <span class="check"></span>
                                 </div>
-                                <!--
-                                                                        <div class="form-radio-item">
-                                                                            <input type="radio" name="payment" id="cheque">
-                                                                            <label for="cheque">Sachin Patel</label>
-                                                                            <span class="check"></span>
-                                                                        </div>
-                                -->
-
                             </div>
                         </div>
 
@@ -303,15 +285,14 @@
                         </script>
                     </div>
 
-
                     <div class="form-group">
                         <label class="required">Select your profile picture:</label>
                         <input type="file" name="myImage" accept="image/*" onchange="getBaseUrl();"/>
                         <br>
 
                         <div class="form-submit">
-                            <input type="submit" value="Submit" class="submit" id="submit" name="submit"/>
-                            <input type="submit" value="Reset" class="submit" id="reset" name="reset"/>
+                            <input type="submit" value="Submit" class="submitReset" id="submit" name="submit"/>
+                            <input type="reset" value="Reset" class="submitReset" id="reset" name="reset"/>
                         </div>
 
                     </div>
@@ -353,14 +334,19 @@
                     let modal = document.getElementById('myModal');
                     let span = document.getElementsByClassName("close")[0];
                     span.onclick = function () {
-                        modal.style.display = "none";
+                        closeModal();
+
                     };
                     window.onclick = function (event) {
                         if (event.target === modal) {
-                            modal.style.display = "none";
+                            closeModal();
                         }
                     };
 
+                    const closeModal = () => {
+                        modal.style.display = "none";
+                        document.getElementById("reset").click();
+                    };
 
                     let modal1 = document.getElementById('myModal1');
                     let span1 = document.getElementsByClassName("close1")[0];
@@ -384,7 +370,6 @@
 
 
 <!-- JS -->
-
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/nouislider/nouislider.min.js"></script>
 <script src="vendor/wnumb/wNumb.js"></script>
