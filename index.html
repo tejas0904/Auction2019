@@ -36,15 +36,14 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    
+                    <center>
                      <img class="img-responsive" style="margin: 15px 15px" src="images/apl_logo.png" class="img" width="10%">
-                       
-                    <h1 style="color: #095142">&nbsp;&nbsp;&nbsp;&nbsp;<i>#APL2019</i></h1>
+                    <h1 style="color: #f45a00">&nbsp;&nbsp;&nbsp;&nbsp;<i>WELCOME TO #APL2019</i></h1>
+                    
                     
                     <div class="form-input">
-                    <label class="form-link" style="padding-left: 5px"><u>Please note:</u></label>
-                    <label class="form-link" style="padding-left: 5px">THE RATINGS PROVIDED BY YOU ARE CONSIDERED TO BE THE EXACT LEVEL AT WHICH YOU CONSIDER YOUR GAMEPLAY. CAPTAINS DURING THE AUCTION WILL BID FOR YOU BASED ON THE RATINGS YOU PROVIDE. SO PLEASE MAKE SURE THE RATINGS ARE DONE SERIOUSLY IN ORDER TO ENJOY THE TOURNAMENT. THANK YOU FOR YOUR UNDERSTANDING</label>
-                        </div>
+                    <label class="form-link" style="padding-left: 5px;"><u style="color: red;">Please note:</u> THE DETAILS PROVIDED BY YOU ARE CONSIDERED TO BE CORRECT.<BR>YOU ARE JUST ONE STEP CLOSER OF ATMIYA PREMIERE LEAGUE!</label>
+                        </div> </center>
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
                              
@@ -104,7 +103,7 @@
                             </div>
                         </div>
                         
-                          
+                          <a class="form-link" style="color: red">THE RATINGS PROVIDED BY YOU ARE CONSIDERED TO BE THE EXACT LEVEL AT WHICH YOU CONSIDER YOUR GAMEPLAY. CAPTAINS DURING THE AUCTION WILL BID FOR YOU BASED ON THE RATINGS YOU PROVIDE. SO PLEASE MAKE SURE THE RATINGS ARE DONE SERIOUSLY IN ORDER TO ENJOY THE TOURNAMENT. THANK YOU FOR YOUR UNDERSTANDING</a>
                        
                         <div class="batting">
                             <label class="required">Tell us about your batting skills</label>
@@ -146,8 +145,8 @@
                             <div class="form-group">
                             
                                 <div class="form-input">
-                                    
                                     <label for="chequeno" class="required">Jersey Number (0 to 99)</label>
+                                      <a class="form-link" style="color: red">Select your desired number on your jersey.</a>
                                     <input type="number" name="chequeno" id="chequeno" min="0" max="99" required/>
                                 </div> 
                                 
@@ -164,7 +163,7 @@
                                         </div>
                                         
                                     
-                                     <a class="form-link" style="color: red">Please select the size carefully because it won't change later.</a>
+                                     <a class="form-link" style="color: red">Select the size carefully because it won't change later.</a>
                                     <div class="select-list">
                                         
                                         <select name="jerseySize" id="jerseySize">
@@ -187,15 +186,28 @@
                             <div class="form-group">     
                                   <div class="form-radio">
                                     <div class="label-flex">
-                                        <label for="payment" class="required">Interac to</label>
-                                        <a href="#" class="form-link">Select & copy email</a>
+                                        <label for="payment" class="required">I am sending <b style="color: red;"><u>$40</u></b> APL Seva to</label>
+<!--                                        <a href="#" class="form-link">Select & copy email</a>-->
                                     </div>
                                     <div class="form-radio-group">            
                                         <div class="form-radio-item">
-
-                                            <input type="radio" name="payment" id="cash" onclick="copyToClipboard('#p1')">
-                                            <label for="cash">Ankit Vasu</label>
-                                            <p id="p1">vasu.ankit4@gmail.com</p>
+                                            <input type="radio" name="payment" id="cash1" onclick="copyToClipboard('#p1')">
+                                            <label for="cash1">Bhavik Goyani</label>
+                                            <p id="p1">goyanibhavik369@gmail.com</p>
+                                            <span class="check"></span>
+                                        </div>
+                                        
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="payment" id="cash2" onclick="copyToClipboard('#p2')">
+                                            <label for="cash2">Saral Patel</label>
+                                            <p id="p2">saralpatel21@gmail.com</p>
+                                            <span class="check"></span>
+                                        </div>
+                                        
+                                        <div class="form-radio-item">
+                                            <input type="radio" name="payment" id="cash3" onclick="copyToClipboard('#p3')">
+                                            <label for="cash3">Saurabh Jain</label>
+                                            <p id="p3">saurabhjain3699@gmail.com</p>
                                             <span class="check"></span>
                                         </div>
 <!--
@@ -218,7 +230,7 @@
                                           $temp.val($(element).text()).select();
                                           document.execCommand("copy");
                                          $temp.remove();
-                                        alert("Copied Email for Interac");
+                                        alert("You have successfully copied the Email for Interac. You can open your Bank App and paste it there.");
                                         }
 
                                      
@@ -234,7 +246,10 @@
                               <div class="form-group">
                                   
                                   <form action="upload.php" method="post" enctype="multipart/form-data">
-                                Select your profile picture:
+                                      
+                                      <label class="required">Select your profile picture:</label>
+                                      
+                                
                                 <input type="file" name="fileToUpload" id="fileToUpload">
                                   
                             </form>
