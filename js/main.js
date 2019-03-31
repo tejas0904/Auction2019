@@ -211,7 +211,7 @@
         imageFormat = base64PhotoWithExt[1];
 
         if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png")) {
-            throw new Error("invalid image format (shioud either jpg/jpeg/png)");
+            throw new Error("invalid image format (shoud either jpg/jpeg/png)");
         }
 
         try {
