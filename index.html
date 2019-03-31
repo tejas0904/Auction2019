@@ -42,6 +42,16 @@
 
 
 <body>
+    <style>
+        
+        
+        
+        
+    .readonly
+        {
+            background-color: #EBEBEB;
+        }
+    </style>
 
 
     <div class="main">
@@ -50,7 +60,7 @@
             <div class="signup-content">
 
                 <div class="signup-img">
-                    <img src="images/form-img1.jpg" alt="">
+                    <img style="box-shadow: 10px 0px 30px gray;" src="images/form-img1.jpg" alt="">
                     <div class="signup-img-content">
                         <h2>Register now </h2>
                         <p>while seats are available!</p>
@@ -61,10 +71,16 @@
                      <img class="img-responsive" style="margin: 15px 15px" src="images/apl_logo.png" class="img" width="10%">
                     <h1 style="color: #f45a00">&nbsp;&nbsp;&nbsp;&nbsp;<i>WELCOME TO #APL2019</i></h1>
 
-
+                    <div class="form-group">
                     <div class="form-input">
-                    <label class="form-link" style="padding-left: 5px;"><u style="color: red;">Please note:</u> THE DETAILS PROVIDED BY YOU ARE CONSIDERED TO BE CORRECT.<BR>YOU ARE JUST ONE STEP CLOSER OF ATMIYA PREMIERE LEAGUE!</label>
-                        </div> </center>
+                    <label class="form-link"><u style="color: red;">Please note:</u>
+                        The ratings provided by you are considered to be the exact level at which you consider your gameplay. Captains during the auction will bid for you based on the ratings you provide. So please make sure the ratings are done seriously in order to enjoy the tournament. Also please provide a picture where the face is clearly visible. Thank you for your understanding.</label>
+                        </div></div> 
+                        
+                        </center>
+                        
+                        
+                        
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-row">
 
@@ -82,7 +98,7 @@
 
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
-                                    <input type="text" name="email" id="email" required/>
+                                    <input type="email" name="email" id="email" required/>
                                 </div>
 
                                 <div class="form-input">
@@ -104,21 +120,21 @@
 
                                     <div class="form-input">
                                     Street address
-                                <input class="field" id="street_number" disabled="true" disabled/>
-                                <input class="field" id="route" disabled="true"/><br>
-
+                                <input class="field readonly" id="street_number" disabled="true" readonly/>
+                                <input class="field readonly" id="route" readonly/><br>
+                                
                                 City
-                                <input class="field" id="locality" disabled="true"/><br>
-
+                                <input class="field readonly" id="locality" readonly/><br>
+                                
                                 State
-                                <input class="field" id="administrative_area_level_1" disabled="true"/><br>
-
+                                <input class="field readonly" id="administrative_area_level_1"readonly/><br>
+                                
                                 Zip code
-                                <input class="field" id="postal_code" disabled="true"/>
-
+                                <input class="field readonly" id="postal_code" readonly/>
+                                
                                 Country
-                                <input class="field" id="country" disabled="true"/><br>
-
+                                <input class="field readonly" id="country" readonly/><br>
+                                    
                                     <!-- end -->
                                 </div>
                             </div>
@@ -133,7 +149,7 @@
                                 <span class="donate-value" id="batting_value"></span>
                             </div>
                             <br>
-                                    <input type="textarea" class="required" name="battingComments" id="battingComments" maxlength="12" placeholder="Please describe your Batting sills" required>
+                                    <input type="text" class="required" name="battingComments" id="battingComments" maxlength="150" placeholder="Please describe your Batting sills" required>
                         </div>
 
                          <div class="batting">
@@ -143,7 +159,7 @@
                                 <span class="donate-value1" id="bowling_value"></span>
                             </div>
                              <br>
-                                    <input type="textarea" class="required" name="bowlingComments" id="bowlingComments" maxlength="12" placeholder="Please describe your Bowling sills" required>
+                                    <input type="text" class="required" name="bowlingComments" id="bowlingComments" maxlength="150" placeholder="Please describe your Bowling sills" required>
                         </div>
 
                           <div class="batting">
@@ -153,7 +169,7 @@
                                 <span class="donate-value2" id="fielding_value"></span>
                             </div>
                               <br>
-                                    <input type="textarea" class="required" name="fieldingComments" id="fieldingComments" maxlength="12" placeholder="Please describe your Fielding sills" required>
+                                    <input type="text" class="required" name="fieldingComments" id="fieldingComments" maxlength="150" placeholder="Please describe your Fielding sills" required>
                         </div>
 
 
@@ -163,14 +179,15 @@
 
 
                         <div class="form-row">
-                            <div class="form-group">
-
+                            <div class="form-group"> 
+                            
                                 <div class="form-input">
                                     <label for="chequeno" class="required">Jersey Number (0 to 99)</label>
                                       <a class="form-link" style="color: red">Select your desired number on your jersey.</a>
-                                    <input type="number" name="chequeno" id="chequeno" min="0" max="99" required/>
-                                </div>
-
+                                    <input type="number" name="chequeno" id="chequeno" maxlength=2 min="0" max="99" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "2" required/>
+                                    
+                                </div> 
+                                
                             </div>
 
 
@@ -185,9 +202,9 @@
 
 
                                      <a class="form-link" style="color: red">Select the size carefully because it won't change later.</a>
-                                    <div class="select-list">
-
-                                        <select name="jerseySize" id="jerseySize">
+                                    <div class="select-list" class="required">
+                                        
+                                        <select name="jerseySize" id="jerseySize" class="required">
                                             <option value="selectSize">Select Final Size</option>
                                             <option value="small" id="small" selected="selected">Small</option>
                                             <option value="medium" id="medium">Medium</option>
@@ -210,14 +227,16 @@
                                         <label for="payment" class="required">I am sending <b style="color: red;"><u>$40</u></b> APL Seva to</label>
 <!--                                        <a href="#" class="form-link">Select & copy email</a>-->
                                     </div>
-                                    <div class="form-radio-group">
+                                    <div class="form-radio-group">            
+<!--
                                         <div class="form-radio-item">
                                             <input type="radio" name="payment" id="cash1" onclick="copyToClipboard('#p1')">
                                             <label for="cash1">Bhavik Goyani</label>
                                             <p id="p1">goyanibhavik369@gmail.com</p>
                                             <span class="check"></span>
                                         </div>
-
+-->
+                                        
                                         <div class="form-radio-item">
                                             <input type="radio" name="payment" id="cash2" onclick="copyToClipboard('#p2')">
                                             <label for="cash2">Saral Patel</label>

@@ -125,7 +125,7 @@
         creditcard: "",
         equalTo: ""
     });
-
+    
     //const URL = "https://cloud4i862354trial.hanatrial.ondemand.com/cloud/webapi/player/playerDetails";
     const URL = "http://localhost:8080/cloud/webapi/player/playerDetails";
 
