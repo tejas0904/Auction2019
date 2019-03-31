@@ -216,11 +216,11 @@
         }
         const base64PhotoWithExt = base64PhotoWithFileExtensionSeperatedByDot.toString().split('.');
         base64ImageString = base64PhotoWithExt[0];
-        imageFormat = base64PhotoWithExt[1].toLowerCase();
+        imageFormat = base64PhotoWithExt[1];
 
-        if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png" || imageFormat === "heic" ||
-              imageFormat === "heif" || imageFormat === "hevc")) {
-            throw new Error("invalid image format (shoud either jpg/jpeg/png/heic)");
+        if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png" || imageFormat === "JPG" ||
+              imageFormat === "JPEG" || imageFormat === "PNG")) {
+            throw new Error("invalid image format (shoud either jpg/jpeg/png)");
         }
 
         try {
