@@ -218,7 +218,14 @@ body {
   font-weight: 500;
   font-family: 'Poppins';
   margin: 0px;
-  background: #282828;
+    background-image: url("../images/ABC2019.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 9999999999999;
+    
+    
+    
+/*  background: #282828;*/
   padding: 50px 0; }
 
 .main {
@@ -227,7 +234,10 @@ body {
 .container {
   width: 1400px;
   margin: 0 auto;
-  background: #fff; }
+  background: #fff;
+    opacity: .85;
+
+}
 
 .signup-img {
   position: relative;
