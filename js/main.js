@@ -182,6 +182,10 @@
         base64ImageString = base64PhotoWithExt[0];
         imageFormat = base64PhotoWithExt[1];
 
+        if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png")) {
+            throw new Error("invalid image format (shioud either jpg/jpeg/png)");
+        }
+
         const jerseySizeElement = document.getElementById("jerseySize");
         jerseySize = jerseySizeElement.outerText.toLocaleLowerCase().trim();
 
