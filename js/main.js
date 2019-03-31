@@ -139,8 +139,7 @@
 
     registerForm.submit(function (event) {
         event.preventDefault();
-        //const url1 = "http://apl2019.us-east-2.elasticbeanstalk.com/playerdetails";
-       const url = "http://aplreg2019.us-east-2.elasticbeanstalk.com/webapi/player/playerDetails";
+      const url = "https://cloud3i862354trial.hanatrial.ondemand.com/cloud/webapi/player/playerDetails";
 
 
        checkForValidations();
