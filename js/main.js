@@ -146,26 +146,26 @@
        checkForValidations();
 
         const Data = {
-            firstName: document.getElementById("first_name").value,
-            lastName: document.getElementById("last_name").value,
-            email: document.getElementById("email").value,
-            mobileNumber : parseInt(document.getElementById("phone_number").value.replace(/-/g,'')),   // this line will remove dash in string and convert it to integer
-            streetAddress: document.getElementById("street_number").value + document.getElementById("route").value,
-            city: document.getElementById("locality").value,
-            state: document.getElementById("administrative_area_level_1").value,
-            zipCode: document.getElementById("postal_code").value,
-            country: document.getElementById("country").value,
-            jerseyNumber: document.getElementById("chequeno").value === undefined ? 0 : document.getElementById("chequeno").value,
-            sevaCollector:document.getElementById("locality").value,
-            jerseySize :document.getElementById("jerseySize").value ===  undefined ? "medium" : document.getElementById("jerseySize").value,
+            firstName: document.getElementById("first_name").value.trim(),
+            lastName: document.getElementById("last_name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            mobileNumber : parseInt(document.getElementById("phone_number").value.trim().replace(/-/g,'')),   // this line will remove dash in string and convert it to integer
+            streetAddress: document.getElementById("street_number").value.trim() + document.getElementById("route").value.trim(),
+            city: document.getElementById("locality").value.trim(),
+            state: document.getElementById("administrative_area_level_1").value.trim(),
+            zipCode: document.getElementById("postal_code").value.trim(),
+            country: document.getElementById("country").value.trim(),
+            jerseyNumber: parseInt(document.getElementById("chequeno").value.trim() === undefined ? 0 : document.getElementById("chequeno").value.trim()),
+            sevaCollector:document.getElementById("locality").value.trim(),
+            jerseySize :document.getElementById("jerseySize").value ===  undefined ? "medium" : document.getElementById("jerseySize").value.trim(),
             isPaid: false,
             photo :"document.getElementByIdfgn.value",
-            battingRating :battingSlider.noUiSlider.get(), // getter syntax for the value of slider
-            bowlingRating :bowlingSlider.noUiSlider.get(),
-            fieldingRating :fieldingSlider.noUiSlider.get(),
-            battingComment :document.getElementById("battingComments").value,
-            bowlingComment :document.getElementById("bowlingComments").value,
-            fieldingComment : document.getElementById("fieldingComments").value
+            battingRating :parseInt(battingSlider.noUiSlider.get().trim()), // getter syntax for the value of slider
+            bowlingRating :parseInt(bowlingSlider.noUiSlider.get().trim()),
+            fieldingRating :parseInt(fieldingSlider.noUiSlider.get().trim()),
+            battingComment :document.getElementById("battingComments").value.trim(),
+            bowlingComment :document.getElementById("bowlingComments").value.trim(),
+            fieldingComment : document.getElementById("fieldingComments").value.trim()
         };
 
 
