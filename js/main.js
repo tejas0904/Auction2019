@@ -163,9 +163,9 @@
             battingRating :battingSlider.noUiSlider.get(), // getter syntax for the value of slider
             bowlingRating :bowlingSlider.noUiSlider.get(),
             fieldingRating :fieldingSlider.noUiSlider.get(),
-            //  battingComment :document.getElementById("locality").value,
-            // bowlingComment :document.getElementById("locality").value,
-            //  fieldingComment : document.getElementById("locality").value
+            battingComment :document.getElementById("battingComments").value,
+            bowlingComment :document.getElementById("bowlingComments").value,
+            fieldingComment : document.getElementById("fieldingComments").value
         };
 
 
