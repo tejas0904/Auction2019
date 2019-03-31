@@ -27,12 +27,14 @@
         };
 
         try {
-            const fileName = document.querySelector('input[type="file"]').files[0];
+            const file = document.querySelector('input[type="file"]').files[0];
+            const fileName = file.name;
             const fileExt = fileName.split('.').pop();
-            const data = (await getBase64(fileName)).split(",")[1];
+            const data = (await getBase64(file)).split(",")[1];
             console.log(data);
             document.getElementById('base64Image').value = data+"."+fileExt;
         } catch (error) {
+            console.log(error);
             alert("Invalid image. Please select a valid image");
         }
     }
@@ -238,14 +240,14 @@
 -->
                                         
                                         <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cash2" onclick="copyToClipboard('#p2')">
+                                            <input type="radio" name="payment" id="cash2" onclick="onClick('#p2', 'saralpatel21@gmail.com')">
                                             <label for="cash2">Saral Patel</label>
                                             <p id="p2">saralpatel21@gmail.com</p>
                                             <span class="check"></span>
                                         </div>
 
                                         <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cash3" onclick="copyToClipboard('#p3')">
+                                            <input type="radio" name="payment" id="cash3" onclick="onClick('#p3', 'saurabhjain3699@gmail.com')">
                                             <label for="cash3">Saurabh Jain</label>
                                             <p id="p3">saurabhjain3699@gmail.com</p>
                                             <span class="check"></span>
@@ -262,18 +264,19 @@
                                 </div>
 
                                  <script>
+                                     const onClick = (elementId, emailId) => {
+                                         copyToClipboard(elementId);
+                                         document.getElementById("sevaCollectorEmail").value = emailId;
+                                     };
 
                                     function copyToClipboard(element) {
-
                                           var $temp = $("<input>");
                                           $("body").append($temp);
                                           $temp.val($(element).text()).select();
                                           document.execCommand("copy");
                                          $temp.remove();
                                         alert("You have successfully copied the Email for Interac. You can open your Bank App and paste it there.");
-                                        }
-
-
+                                    }
                                     </script>
                         </div>
 
@@ -294,6 +297,7 @@
                         </div>
                                   </div>
                         <input type="text" id="base64Image" style="display: none;">
+                        <input type="text" id="sevaCollectorEmail" style="display: none;">
                     </form>
 
                 </div>
