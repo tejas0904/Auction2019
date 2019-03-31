@@ -126,8 +126,6 @@
         equalTo: ""
     });
 
-    //const URL = "https://cloud4i862354trial.hanatrial.ondemand.com/cloud/webapi/player/playerDetails";
-    //const URL = "http://localhost:8080/cloud/webapi/player/playerDetails";
     const URL = "https://apl2019i862354trial.hanatrial.ondemand.com/cloudFinal/webapi/player/playerDetails";
     let isProcessing = false;
 
