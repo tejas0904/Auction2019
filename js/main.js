@@ -132,10 +132,18 @@
         creditcard: "",
         equalTo: ""
     });
+
+    function checkForValidations() {
+        //check validations over here, and make this function as Promise
+    }
+
     registerForm.submit(function (event) {
         event.preventDefault();
         //const url1 = "http://apl2019.us-east-2.elasticbeanstalk.com/playerdetails";
-       const url1 = "http://localhost:8080/playerdetails";
+       const url = "http://aplreg2019.us-east-2.elasticbeanstalk.com/webapi/player/playerDetails";
+
+
+       checkForValidations();
 
         const Data = {
             firstName: document.getElementById("first_name").value,
@@ -147,9 +155,9 @@
             state: document.getElementById("administrative_area_level_1").value,
             zipCode: document.getElementById("postal_code").value,
             country: document.getElementById("country").value,
-            jerseyNumber: document.getElementById("chequeno").value,
+            jerseyNumber: document.getElementById("chequeno").value === undefined ? 0 : document.getElementById("chequeno").value,
             sevaCollector:document.getElementById("locality").value,
-            jerseySize :"document",//.getElementById("jerseySize").value,
+            jerseySize :document.getElementById("jerseySize").value ===  undefined ? "medium" : document.getElementById("jerseySize").value,
             isPaid: false,
             photo :"document.getElementByIdfgn.value",
             battingRating :battingSlider.noUiSlider.get(), // getter syntax for the value of slider
@@ -160,8 +168,6 @@
             //  fieldingComment : document.getElementById("locality").value
         };
 
-        var myHeader =  new Headers();
-        myHeader.append("content-type","application/json");
 
         const otherParam = {
             headers:{
@@ -169,7 +175,7 @@
             },
             body:  JSON.stringify(Data),
             method: "POST",
-           // mode: "no-cors" // no-cors, cors, *same-origin
+           // mode: "cors" // no-cors, cors, *same-origin
         };
 
         // const otherParam1 = {
@@ -181,12 +187,30 @@
         //     });
 
 
-        fetch(url1, otherParam)
+        fetch(url, otherParam)
             .then(res => {
                 alert("Successfully submitted! voila! " + res)
-            })
+            }).then(error => console.log(error))
 
-            .then(error => console.log(error))
+        // var data = JSON.stringify({
+        //     "firstName": "xasddddddddddddddddddddasd asd ASFJKSDKHJFJKLAS HJDJKDFSHJK"
+        // });
+        //
+        // var xhr = new XMLHttpRequest();
+        // xhr.withCredentials = true;
+        //
+        // xhr.addEventListener("readystatechange", function () {
+        //     if (this.readyState === 4) {
+        //         console.log(this.responseText);
+        //     }
+        // });
+        //
+        // xhr.open("GET", "http://localhost:8080/cloud/webapi/player/playerDetails");
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        // xhr.setRequestHeader("cache-control", "no-cache");
+        // xhr.setRequestHeader("Postman-Token", "df5523d1-ec84-4f7d-87c2-0d61796c2954");
+        //
+        // xhr.send(data);
     });
 
 
