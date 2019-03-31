@@ -273,7 +273,6 @@
 
     const displaySuccessMessage = message => {
         document.getElementById("myModal").style.display = "block";
-        document.getElementById("successModalMessage").innerHTML = (message);
     };
 
     const displayErrorMessage = message => {
