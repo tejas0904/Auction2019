@@ -125,84 +125,169 @@
         creditcard: "",
         equalTo: ""
     });
-    
-    //const URL = "https://cloud4i862354trial.hanatrial.ondemand.com/cloud/webapi/player/playerDetails";
-    const URL = "http://localhost:8080/cloud/webapi/player/playerDetails";
 
-    const checkForValidations = () => {
-        // TODO: check validations over here, and make this function as Promise
-        const jerseyNumber = parseInt(document.getElementById("chequeno").value.trim());
-        if (jerseyNumber < 0 || jerseyNumber > 99) {
+    //const URL = "https://cloud4i862354trial.hanatrial.ondemand.com/cloud/webapi/player/playerDetails";
+    //const URL = "http://localhost:8080/cloud/webapi/player/playerDetails";
+    const URL = "https://apl2019i862354trial.hanatrial.ondemand.com/cloudFinal/webapi/player/playerDetails";
+    let isProcessing = false;
+
+    const validateAndGetValidatedFields = () => {
+        let jerseyNumber;
+        let phoneNumber;
+        let battingRate;
+        let bowlingRate;
+        let fieldingRate;
+        let base64ImageString;
+        let imageFormat;
+        let jerseySize;
+
+        try {
+            const jerseyNumberString = document.getElementById("chequeno").value.trim();
+            jerseyNumber = jerseyNumberString ? parseInt(jerseyNumberString) : 0;
+            if (jerseyNumber < 0 || jerseyNumber > 99) {
+                throw new Error();
+            }
+        } catch (error) {
+            log(error);
             throw new Error("invalid jersey number");
         }
-        const mobileNumber = parseInt(document.getElementById("phone_number").value.trim().replace(/-/g, ''));
-        const battingRating = parseInt(battingSlider.noUiSlider.get().trim());
-        const bowlingRating = parseInt(bowlingSlider.noUiSlider.get().trim());
-        const fieldingRating = parseInt(fieldingSlider.noUiSlider.get().trim());
-        //const jerseySizeElement = document.getElementById("jerseySize");
-       //console.log(jerseySizeElement.options[jerseySizeElement.selectedIndex].value);
+        try {
+            phoneNumber = parseInt(document.getElementById("phone_number").value.trim().replace(/-/g, ''));   // this line will remove dash in string and convert it to integer
+        } catch (error) {
+            log(error);
+            throw new Error("invalid mobile number");
+        }
+        try {
+            battingRate = parseInt(battingSlider.noUiSlider.get().trim()); // getter syntax for the value of slider
+        } catch (error) {
+            log(error);
+            throw new Error("invalid batting rating");
+        }
+        try {
+            bowlingRate = parseInt(bowlingSlider.noUiSlider.get().trim());
+        } catch (error) {
+            log(error);
+            throw new Error("invalid bowling rating");
+        }
+        try {
+            fieldingRate = parseInt(fieldingSlider.noUiSlider.get().trim());
+        } catch (error) {
+            throw new Error("invalid fielding rating");
+        }
+        const base64PhotoWithFileExtensionSeperatedByDot = document.getElementById('base64Image').value;
+        if (!base64PhotoWithFileExtensionSeperatedByDot) {
+            throw new Error("invalid profile picture");
+        }
+        const base64PhotoWithExt = base64PhotoWithFileExtensionSeperatedByDot.toString().split('.');
+        base64ImageString = base64PhotoWithExt[0];
+        imageFormat = base64PhotoWithExt[1];
+
+        const jerseySizeElement = document.getElementById("jerseySize");
+        jerseySize = jerseySizeElement.outerText.toLocaleLowerCase().trim();
+
+        return {
+            jerseyNumber,
+            phoneNumber,
+            battingRate,
+            bowlingRate,
+            fieldingRate,
+            base64ImageString,
+            imageFormat,
+            jerseySize
+        }
     };
 
     const createData = () => {
-        const jerseyNumber = document.getElementById("chequeno").value.trim();
-        const jerseySizeElement = document.getElementById("jerseySize");
-        const jerseySize = jerseySizeElement.outerText.toLocaleLowerCase().trim();
-        const base64PhotoWithFileExtensionSeperatedByDot = document.getElementById('base64Image').value;
-        const array = base64PhotoWithFileExtensionSeperatedByDot.toString().split('.');
+        const validatedFields = validateAndGetValidatedFields();
         document.getElementById('base64Image').value = "";
 
         const requestBody = {
             firstName: document.getElementById("first_name").value.trim(),
             lastName: document.getElementById("last_name").value.trim(),
             email: document.getElementById("email").value.trim(),
-            mobileNumber: parseInt(document.getElementById("phone_number").value.trim().replace(/-/g, '')),   // this line will remove dash in string and convert it to integer
+            mobileNumber: validatedFields.phoneNumber,
             streetAddress: document.getElementById("street_number").value.trim() + document.getElementById("route").value.trim(),
             city: document.getElementById("locality").value.trim(),
             state: document.getElementById("administrative_area_level_1").value.trim(),
             zipCode: document.getElementById("postal_code").value.trim(),
             country: document.getElementById("country").value.trim(),
-            jerseyNumber: jerseyNumber ? parseInt(jerseyNumber) : 0,
-            sevaCollector: document.getElementById("locality").value,
-            jerseySize: jerseySize,
+            jerseyNumber: validatedFields.jerseyNumber,
+            sevaCollector: document.getElementById("sevaCollectorEmail").value,
+            jerseySize: validatedFields.jerseySize,
             isPaid: false,
-            photo: array[0],
-            battingRating: parseInt(battingSlider.noUiSlider.get().trim()), // getter syntax for the value of slider
-            bowlingRating: parseInt(bowlingSlider.noUiSlider.get().trim()),
-            fieldingRating: parseInt(fieldingSlider.noUiSlider.get().trim()),
+            battingRating: validatedFields.battingRate,
+            bowlingRating: validatedFields.bowlingRate,
+            fieldingRating: validatedFields.fieldingRate,
             battingComment: document.getElementById("battingComments").value.trim(),
             bowlingComment: document.getElementById("bowlingComments").value.trim(),
             fieldingComment: document.getElementById("fieldingComments").value.trim(),
-            imageFormat: array[1]
+            photo: validatedFields.base64ImageString,
+            imageFormat: validatedFields.imageFormat
         };
 
-        console.log(requestBody);
+        log(requestBody);
         return requestBody;
     };
 
-    const sendRequest = () => {
-        fetch(URL, {
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(createData()),
-            method: "POST"
-        }).then(response => {
-            alert("Successfully submitted! voila! " + response)
-        }).catch(error => {
-            console.log(error);
-            alert("unexpected error occurred. Please try again or contact the admin.");
-        })
+    const sendRequest = async jsonData => {
+        try {
+            const response = await fetch(URL, {
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(jsonData),
+                method: "POST"
+            });
+            return true;
+        } catch (error) {
+            log(error);
+            throw new Error("unexpected error occurred. Please try again or contact the admin.");
+        }
     };
 
-
-    registerForm.submit(event => {
+    registerForm.submit(async event => {
         try {
+            if (isProcessing) {
+                return;
+            }
+            isProcessing = true;
+
+            displayLoader();
             event.preventDefault();
-            checkForValidations();
-            sendRequest();
+            const jsonData = createData();
+            const isRegistered = await sendRequest(jsonData);
+
+            displaySuccessMessage("Registered Successfully");
         } catch (error) {
-            alert(error);
+            log(error);
+            displayErrorMessage(error);
         }
+
+        isProcessing = false;
+        hideLoader();
     });
 
+    const displaySuccessMessage = message => {
+        alert(message);
+    };
+
+    const displayErrorMessage = message => {
+        alert(message);
+    };
+
+    const displayLoader = () => {
+        //getLoader().style.visibility = visible;
+    };
+
+    const hideLoader = () => {
+        //getLoader().style.visibility = hidden;
+    };
+
+    const getLoader = () => {
+        return document.getElementById("loader");
+    };
+
+    const log = message => {
+        console.log(message);
+    }
 })(jQuery);
