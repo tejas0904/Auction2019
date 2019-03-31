@@ -168,49 +168,18 @@
             fieldingComment : document.getElementById("fieldingComments").value.trim()
         };
 
-
-        const otherParam = {
+        fetch(url, {
             headers:{
                 "content-type":"application/json"
             },
-            body:  JSON.stringify(Data),
-            method: "POST",
-           // mode: "cors" // no-cors, cors, *same-origin
-        };
-
-        // const otherParam1 = {
-        //     mode: "no-cors" // no-cors, cors, *same-origin
-        // };
-        // fetch('http://localhost:8080/hello',otherParam1)
-        //     .then(function(myJson) {
-        //         console.log(JSON.stringify(myJson));
-        //     });
-
-
-        fetch(url, otherParam)
+            body: JSON.stringify(Data),
+            method:"POST"
+        })
             .then(res => {
                 alert("Successfully submitted! voila! " + res)
-            }).then(error => console.log(error))
+            })
+            .catch(error => console.log(error))
 
-        // var data = JSON.stringify({
-        //     "firstName": "xasddddddddddddddddddddasd asd ASFJKSDKHJFJKLAS HJDJKDFSHJK"
-        // });
-        //
-        // var xhr = new XMLHttpRequest();
-        // xhr.withCredentials = true;
-        //
-        // xhr.addEventListener("readystatechange", function () {
-        //     if (this.readyState === 4) {
-        //         console.log(this.responseText);
-        //     }
-        // });
-        //
-        // xhr.open("GET", "http://localhost:8080/cloud/webapi/player/playerDetails");
-        // xhr.setRequestHeader("Content-Type", "application/json");
-        // xhr.setRequestHeader("cache-control", "no-cache");
-        // xhr.setRequestHeader("Postman-Token", "df5523d1-ec84-4f7d-87c2-0d61796c2954");
-        //
-        // xhr.send(data);
     });
 
 
