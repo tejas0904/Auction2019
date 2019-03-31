@@ -216,7 +216,7 @@
         }
         const base64PhotoWithExt = base64PhotoWithFileExtensionSeperatedByDot.toString().split('.');
         base64ImageString = base64PhotoWithExt[0];
-        imageFormat = base64PhotoWithExt[1].toLocaleLowerCase();
+        imageFormat = base64PhotoWithExt[1].toLowerCase();
 
         if (!(imageFormat === "jpg" || imageFormat === "jpeg" || imageFormat === "png" || imageFormat === "heic" ||
               imageFormat === "heif" || imageFormat === "hevc")) {
